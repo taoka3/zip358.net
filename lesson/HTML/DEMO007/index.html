@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO007 | Flexboxによる横並びレイアウト</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", Meiryo, sans-serif;
+      background-color: #f2f9ff;
+      color: #183e60;
+      line-height: 1.8;
+      padding: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    /* ヘッダーの左右配置 */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid #cbdfee;
+      border-radius: 8px;
+      padding: 14px 24px;
+      margin-bottom: 28px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    /* 3カラムのカード横並び */
+    .card-list {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .card {
+      flex: 1 1 240px;
+      background: #ffffff;
+      border: 1px solid #cbdfee;
+      border-radius: 10px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Flexboxによる横並びレイアウト</h1>
+
+  <div class="navbar">
+    <strong>zip358.net</strong>
+    <ul class="nav-links">
+      <li>コース一覧</li>
+      <li>体験コーナー</li>
+      <li>お問い合わせ</li>
+    </ul>
+  </div>
+
+  <div class="card-list">
+    <section class="card">
+      <h2>01. HTML</h2>
+      <p><code>display: flex;</code> を親要素に指定するだけで、子要素がきれいに横並びになります。</p>
+    </section>
+    <section class="card">
+      <h2>02. CSS</h2>
+      <p><code>gap: 20px;</code> を使うと、カード同士の隙間を簡単に均等指定できます。</p>
+    </section>
+    <section class="card">
+      <h2>03. Responsive</h2>
+      <p><code>flex-wrap: wrap;</code> を指定すると、画面幅が狭いときに自動で折り返します。</p>
+    </section>
+  </div>
+</body>
+</html>
+

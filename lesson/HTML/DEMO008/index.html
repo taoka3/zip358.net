@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO008 | CSS Gridによるグリッドレイアウト</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", Meiryo, sans-serif;
+      background-color: #f2f9ff;
+      color: #183e60;
+      line-height: 1.8;
+      padding: 32px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .grid-gallery {
+      display: grid;
+      /* 最小220pxを確保しつつ、自動で列数を調整 */
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .tile {
+      background: #ffffff;
+      border: 1px solid #cbdfee;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .tile-featured {
+      background: #dcefff;
+      grid-column: span 2;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      background: #187bb9;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    @media (max-width: 600px) {
+      .tile-featured {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS Gridによる2次元レイアウト</h1>
+  <p>縦（行）と横（列）を同時に制御したい場合は <code>display: grid;</code> が便利です。</p>
+
+  <div class="grid-gallery">
+    <div class="tile tile-featured">
+      <span class="badge">PICK UP</span>
+      <h2>2列分の幅を使うパネル（grid-column: span 2）</h2>
+      <p>CSS Gridなら、特定のカードだけ2列分のサイズに広げるといった雑誌のようなレイアウトも簡単に作れます。</p>
+    </div>
+    <div class="tile">
+      <h3>パネル A</h3>
+      <p><code>repeat(auto-fit, minmax(220px, 1fr))</code> で自動折り返し。</p>
+    </div>
+    <div class="tile">
+      <h3>パネル B</h3>
+      <p>画面幅に合わせて列数が自動で変化します。</p>
+    </div>
+    <div class="tile">
+      <h3>パネル C</h3>
+      <p>同じ高さに自動で揃うのもGridの強みです。</p>
+    </div>
+  </div>
+</body>
+</html>
+

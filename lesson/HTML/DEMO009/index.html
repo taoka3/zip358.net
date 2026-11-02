@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO009 | ポジション配置（relative / absolute / sticky）</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", Meiryo, sans-serif;
+      background-color: #f2f9ff;
+      color: #183e60;
+      line-height: 1.8;
+      margin: 0;
+    }
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      background: rgba(24, 62, 96, 0.95);
+      color: #ffffff;
+      padding: 12px 28px;
+      z-index: 10;
+    }
+    .container {
+      max-width: 720px;
+      margin: 32px auto;
+      padding: 0 20px;
+    }
+    .product-card {
+      /* 子要素の absolute の基準にする */
+      position: relative;
+      background: #ffffff;
+      border: 1px solid #cbdfee;
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    .new-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: #e65100;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sticky-header">
+    <strong>position: sticky</strong> — スクロールしても上部に固定されるバー
+  </div>
+
+  <div class="container">
+    <h1>要素の重ね合わせと固定配置</h1>
+
+    <div class="product-card">
+      <span class="new-badge">NEW!</span>
+      <h2>親要素に relative、バッジに absolute</h2>
+      <p>カードの右上に「NEW!」バッジを配置するときは、親要素に <code>position: relative;</code> を指定し、バッジに <code>position: absolute;</code> と <code>top / right</code> を指定します。</p>
+    </div>
+
+    <div class="product-card">
+      <h2>スクロールして上部のバーを確認しよう</h2>
+      <p>画面を下にスクロールしても、上部のヘッダーが <code>position: sticky; top: 0;</code> によって画面上端に追従します。</p>
+    </div>
+  </div>
+</body>
+</html>
+

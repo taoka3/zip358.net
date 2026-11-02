@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO011 | CSSトランジションとアニメーション</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", Meiryo, sans-serif;
+      background-color: #f2f9ff;
+      color: #183e60;
+      line-height: 1.8;
+      padding: 32px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hover-card {
+      background: #ffffff;
+      border: 1px solid #cbdfee;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+      /* 変化を0.3秒かけてなめらかにする */
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .hover-card:hover {
+      transform: translateY(-6px);
+      border-color: #187bb9;
+      box-shadow: 0 14px 28px rgba(24, 123, 185, 0.16);
+    }
+    .float-badge {
+      display: inline-block;
+      background: #187bb9;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: bold;
+      animation: floatUpDown 2.4s ease-in-out infinite;
+    }
+    @keyframes floatUpDown {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>CSSトランジションとアニメーション</h1>
+
+  <div class="hover-card">
+    <h2>マウスを乗せてみてください（transition）</h2>
+    <p><code>transition</code> を設定すると、<code>:hover</code> 時の位置（<code>transform</code>）や影（<code>box-shadow</code>）がふわっとなめらかに変化します。</p>
+  </div>
+
+  <h2>キーフレームアニメーション（@keyframes）</h2>
+  <p><code>@keyframes</code> と <code>animation</code> を使うと、JavaScriptを使わずに連続した動きを表現できます。</p>
+  <div class="float-badge">ふわふわ動くバッジ</div>
+</body>
+</html>
+

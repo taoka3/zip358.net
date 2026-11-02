@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO010 | レスポンシブデザインとメディアクエリ</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", Meiryo, sans-serif;
+      background-color: #f2f9ff;
+      color: #183e60;
+      line-height: 1.8;
+      padding: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    /* clamp(最小値, 推奨値, 最大値) で画面幅に応じて文字サイズをなめらかに調整 */
+    h1 {
+      font-size: clamp(22px, 4vw, 36px);
+      color: #187bb9;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+    .panel {
+      background: #ffffff;
+      border: 1px solid #cbdfee;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .screen-indicator {
+      background: #dcefff;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .screen-indicator::after {
+      content: "現在は【PC表示（3列）】です";
+    }
+    /* タブレット以下（768px以下） */
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: 1fr 1fr;
+      }
+      .screen-indicator::after {
+        content: "現在は【タブレット表示（2列）】です";
+      }
+    }
+    /* スマートフォン（520px以下） */
+    @media (max-width: 520px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .screen-indicator::after {
+        content: "現在は【スマートフォン表示（1列）】です";
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>レスポンシブデザイン（画面幅に応じた切り替え）</h1>
+  <p>ブラウザーの横幅を狭めたり広げたりして、列数の変化を確かめてみましょう。</p>
+
+  <div class="screen-indicator"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>カード 1</h2>
+      <p>PCでは3列、タブレットでは2列、スマホでは1列に切り替わります。</p>
+    </div>
+    <div class="panel">
+      <h2>カード 2</h2>
+      <p><code>@media (max-width: 768px)</code> のように条件分岐を書けます。</p>
+    </div>
+    <div class="panel">
+      <h2>カード 3</h2>
+      <p>見出しのサイズは <code>clamp()</code> で自動伸縮しています。</p>
+    </div>
+  </div>
+</body>
+</html>
+

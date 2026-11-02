@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO003 | ボックスモデル（余白・枠線・角丸・影）</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", Meiryo, sans-serif;
+      background-color: #f2f9ff;
+      color: #183e60;
+      line-height: 1.8;
+      padding: 32px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #187bb9;
+    }
+    .box-card {
+      background-color: #ffffff;
+      /* 内側の余白 */
+      padding: 24px;
+      /* 外側の余白 */
+      margin: 24px 0;
+      /* 枠線 */
+      border: 2px solid #7ab6de;
+      /* 角丸 */
+      border-radius: 12px;
+      /* 影 */
+      box-shadow: 0 8px 20px rgba(24, 62, 96, 0.08);
+    }
+    .avatar-svg {
+      display: block;
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: #dcefff;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ボックスモデルとカード装飾</h1>
+  <p>CSSではすべての要素を「四角い箱（ボックス）」として扱います。</p>
+
+  <div class="box-card">
+    <svg class="avatar-svg" viewBox="0 0 100 100" role="img" aria-label="アイコン画像">
+      <circle cx="50" cy="36" r="18" fill="#187bb9" />
+      <path d="M20 84 C20 62, 80 62, 80 84 Z" fill="#187bb9" />
+    </svg>
+    <h2>padding（内側余白）と margin（外側余白）</h2>
+    <p>枠線（border）の内側にある余白が <strong>padding</strong>、他の要素との間隔を空ける外側の余白が <strong>margin</strong> です。</p>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO014 | dialogタグで作るモーダルダイアログ</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", Meiryo, sans-serif;
+      background-color: #f2f9ff;
+      color: #183e60;
+      line-height: 1.8;
+      padding: 32px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .button-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    button {
+      background-color: #187bb9;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: bold;
+      padding: 10px 18px;
+    }
+    button:hover {
+      background-color: #126aab;
+    }
+    /* ダイアログ背面の半透明オーバーレイ */
+    dialog::backdrop {
+      background-color: rgba(24, 62, 96, 0.55);
+    }
+    .dialog[open] {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+      width: min(480px, 90vw);
+    }
+    #close {
+      align-self: flex-end;
+      background-color: #546f86;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>&lt;dialog&gt; 要素で作るモーダルダイアログ</h1>
+  <p>HTML標準の <code>&lt;dialog&gt;</code> タグと <code>data-*</code> 属性を組み合わせると、押したボタンに応じて内容が変わるモーダルウィンドウを実装できます。</p>
+
+  <div class="button-group">
+    <button class="openDialogButton" data-user-name="田中">田中さんのダイアログを開く</button>
+    <button class="openDialogButton" data-user-name="佐藤">佐藤さんのダイアログを開く</button>
+    <button class="openDialogButton" data-user-name="鈴木">鈴木さんのダイアログを開く</button>
+  </div>
+
+  <dialog class="dialog">
+    <div class="box">
+      <h2>お知らせ</h2>
+      <p>こんにちは、<strong id="userName">ユーザー</strong>さん！</p>
+      <p>背景の暗い部分をクリックするか、下のボタンで閉じることができます。</p>
+      <button type="button" id="close">閉じる</button>
+    </div>
+  </dialog>
+
+  <script>
+    const openDialogButtons = document.querySelectorAll('.openDialogButton');
+    const closeDialogButton = document.querySelector('#close');
+    const dialog = document.querySelector('dialog');
+
+    openDialogButtons.forEach((openDialogButton) => {
+      openDialogButton.addEventListener('click', () => {
+        const userName = openDialogButton.getAttribute('data-user-name');
+        document.getElementById('userName').textContent = userName;
+        dialog.showModal();
+      });
+    });
+
+    closeDialogButton.addEventListener('click', () => {
+      dialog.close();
+    });
+
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) {
+        dialog.close();
+      }
+    });
+  </script>
+</body>
+</html>
+

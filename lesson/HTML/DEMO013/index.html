@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO013 | HTML標準のアコーディオン（details / summary）</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", Meiryo, sans-serif;
+      background-color: #f2f9ff;
+      color: #183e60;
+      line-height: 1.8;
+      padding: 32px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    details {
+      background: #ffffff;
+      border: 1px solid #cbdfee;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+    summary {
+      padding: 16px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    summary::after {
+      content: "＋";
+      display: inline-grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #dcefff;
+      color: #187bb9;
+      transition: transform 0.2s;
+    }
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+    .answer {
+      padding: 0 20px 18px;
+      border-top: 1px solid #e5f1fb;
+      color: #546f86;
+    }
+  </style>
+</head>
+<body>
+  <h1>HTMLで作る開閉アコーディオン（FAQ）</h1>
+  <p><code>&lt;details&gt;</code> と <code>&lt;summary&gt;</code> を使うと、JavaScriptを書かなくてもクリックで開閉するメニューを作れます。</p>
+
+  <details open>
+    <summary>Q1. プログラミング未経験でもどこから始めればいいですか？</summary>
+    <div class="answer">
+      <p>まずは目に見えて結果がわかりやすい「HTML &amp; CSS」から始めるのがおすすめです。</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Q2. 特別なソフトは必要ですか？</summary>
+    <div class="answer">
+      <p>テキストエディタ（VS Codeなど）と普段使っているWebブラウザーがあればすぐに始められます。</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Q3. スマートフォン表示にも対応できますか？</summary>
+    <div class="answer">
+      <p>はい、viewportメタタグとメディアクエリ（@media）を使うことで対応できます。</p>
+    </div>
+  </details>
+</body>
+</html>
+

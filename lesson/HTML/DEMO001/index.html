@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO001 | はじめてのHTMLと文字の装飾</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", Meiryo, sans-serif;
+      background-color: #f2f9ff;
+      color: #183e60;
+      line-height: 1.8;
+      padding: 32px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #187bb9;
+      border-bottom: 2px solid #cbdfee;
+      padding-bottom: 8px;
+    }
+    h2 {
+      color: #274a37;
+      margin-top: 28px;
+    }
+    .highlight {
+      background-color: #fff3b0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .note {
+      color: #546f86;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>はじめてのWebページ</h1>
+  <p>HTMLは<strong>文章の構造（骨組み）</strong>をつくり、CSSは<span class="highlight">色やデザイン（見た目）</span>を整えます。</p>
+
+  <h2>見出しタグ（h1〜h3）の役割</h2>
+  <p>h1は大見出し、h2は中見出し、h3は小見出しを表します。ページの目次のように順番に使うのがポイントです。</p>
+
+  <h3>小見出し（h3）の例</h3>
+  <p class="note">※ クラス名（class="note"）を使うと、特定の段落だけ文字色やサイズを変えられます。</p>
+</body>
+</html>
+

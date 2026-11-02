@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO004 | テーブル（表）の作成と装飾</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", Meiryo, sans-serif;
+      background-color: #f2f9ff;
+      color: #183e60;
+      line-height: 1.8;
+      padding: 32px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #187bb9;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(24, 62, 96, 0.06);
+    }
+    th, td {
+      padding: 14px 16px;
+      border: 1px solid #cbdfee;
+      text-align: left;
+    }
+    thead th {
+      background-color: #187bb9;
+      color: #ffffff;
+    }
+    /* 偶数行だけ背景色を変えて読みやすくする */
+    tbody tr:nth-child(even) {
+      background-color: #f6fbff;
+    }
+  </style>
+</head>
+<body>
+  <h1>テーブル（表）の作成と装飾</h1>
+  <p>料金表や学習スケジュールなど、行と列で整理されたデータには <code>&lt;table&gt;</code> を使用します。</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>言語名</th>
+        <th>主な役割</th>
+        <th>動く場所</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>HTML</td>
+        <td>文章や画像の構造を定義する</td>
+        <td>ブラウザー</td>
+      </tr>
+      <tr>
+        <td>CSS</td>
+        <td>色・文字サイズ・レイアウトを整える</td>
+        <td>ブラウザー</td>
+      </tr>
+      <tr>
+        <td>JavaScript</td>
+        <td>クリックなどの操作に反応して動かす</td>
+        <td>ブラウザー</td>
+      </tr>
+      <tr>
+        <td>PHP</td>
+        <td>データの処理やページ生成を行う</td>
+        <td>Webサーバー</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
+

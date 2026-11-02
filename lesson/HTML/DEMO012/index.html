@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO012 | CSS変数（カスタムプロパティ）とテーマ切り替え</title>
+  <style>
+    /* :root にCSS変数を定義する */
+    :root {
+      --bg-color: #f2f9ff;
+      --card-bg: #ffffff;
+      --text-color: #183e60;
+      --accent-color: #187bb9;
+      --border-color: #cbdfee;
+    }
+    /* チェックボックスがONのとき、変数の値をダークテーマ用に上書き */
+    .theme-wrapper:has(#dark-toggle:checked) {
+      --bg-color: #0f2236;
+      --card-bg: #18334e;
+      --text-color: #edf6ff;
+      --accent-color: #6bc4ff;
+      --border-color: #2f5275;
+    }
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", Meiryo, sans-serif;
+    }
+    .theme-wrapper {
+      min-height: 100vh;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 36px 24px;
+      transition: background-color 0.25s, color 0.25s;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+    .accent {
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+    .switch-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      padding: 10px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: var(--card-bg);
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-wrapper">
+    <div class="container">
+      <h1>CSS変数（カスタムプロパティ）</h1>
+      <label class="switch-label">
+        <input type="checkbox" id="dark-toggle">
+        ダークモードに切り替える
+      </label>
+
+      <div class="card">
+        <h2 class="accent">--変数名 と var(--変数名)</h2>
+        <p>色やサイズを <code>--bg-color</code> のように変数にしておくと、一箇所を変更するだけでサイト全体の配色をまとめて切り替えられます。</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

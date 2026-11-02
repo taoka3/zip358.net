@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO006 | セマンティックHTMLでページの骨格をつくる</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", Meiryo, sans-serif;
+      background-color: #f2f9ff;
+      color: #183e60;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header, footer {
+      background: #183e60;
+      color: #ffffff;
+      padding: 18px 28px;
+    }
+    nav {
+      background: #dcefff;
+      padding: 10px 28px;
+    }
+    nav a {
+      margin-right: 16px;
+      color: #183e60;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+    article, aside {
+      background: #ffffff;
+      border: 1px solid #cbdfee;
+      border-radius: 8px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>セマンティックHTML入門ブログ</h1>
+  </header>
+
+  <nav aria-label="グローバルナビゲーション">
+    <a href="#article1">ホーム</a>
+    <a href="#article1">記事一覧</a>
+    <a href="#about">プロフィール</a>
+  </nav>
+
+  <main>
+    <article id="article1">
+      <h2>意味のあるタグ（セマンティックタグ）とは？</h2>
+      <p>すべてを <code>&lt;div&gt;</code> で囲むのではなく、ヘッダーには <code>&lt;header&gt;</code>、主要な本文には <code>&lt;main&gt;</code>、独立した記事には <code>&lt;article&gt;</code> を使うことで、検索エンジンや音声読み上げソフトにも構造が正しく伝わります。</p>
+    </article>
+
+    <aside id="about">
+      <h3>補足コラム（aside）</h3>
+      <p>サイドバーや補足情報には <code>&lt;aside&gt;</code> タグが適しています。</p>
+    </aside>
+  </main>
+
+  <footer>
+    <small>&copy; zip358.net Semantic HTML Demo</small>
+  </footer>
+</body>
+</html>
+
